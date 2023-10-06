@@ -1,0 +1,127 @@
+:root {
+  --green: #72db73;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden ;
+}
+
+.rectangleImage {
+  width: 50vw;
+  background: url("../../assets/register-image.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+}
+
+.rectangleText {
+  color: #fff;
+  font-size: 55px;
+  font-weight: 900;
+  line-height: 141.688%;
+  letter-spacing: 1.1px;
+}
+
+.inputSection {
+  width: 50vw;
+  background-color: #000;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  height: 100vh;
+}
+
+.inputHeading {
+  color: var(--green);
+  font-size: 2.5rem;
+  font-weight: 400;
+  font-family: "Single Day", "sans-serif";
+}
+
+.inputDetails {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .25rem;
+}
+
+.inputDetails input {
+  width: 25vw;
+  border: none;
+  outline: none;
+  padding: 15px 20px;
+  background-color: #292929;
+  border-radius: 3px;
+  color: white;
+}
+
+.inputDetails input::placeholder {
+  color: #7c7c7c;
+}
+
+.checkbox {
+  margin-left: -3rem;
+  
+}
+.checkbox label {
+  margin-left: 10px;
+  font-size: 0.8rem;
+}
+
+.button {
+  width: 25vw;
+  align-self: center;
+  outline: none;
+  border: none;
+  color: #fff;
+  background-color: var(--green);
+  padding: 10px;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.termsConditions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 25vw;
+}
+
+.termsConditions p {
+  font-size: 0.9rem;
+}
+
+.termsConditions span {
+  color: var(--green);
+}
+
+.error{
+  color:red;
+  font-size: .8rem;
+  font-weight: 500;
+  margin-left: -70%;
+}
+
+.inputDetails .inputError{
+  border:1px solid red;
+}
