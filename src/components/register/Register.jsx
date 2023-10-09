@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./register.module.css";
-// import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 function Register() {
   const [name, setName] = useState("");
   const [userName, setUserName] = useState("");
@@ -8,6 +8,8 @@ function Register() {
   const [phNo, setPhNo] = useState("");
   const [error, setError] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+  
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     const checkboxElement = document.querySelector("#checked");
@@ -17,7 +19,8 @@ function Register() {
       !userName.length ||
       !mailId.length ||
       !phNo.length ||
-      (checkboxElement && !checkboxElement.checked)|| !isValidEmail(mailId)
+      (checkboxElement && !checkboxElement.checked) ||
+      !isValidEmail(mailId)
     ) {
       setError(true);
       hasError = true;
@@ -27,6 +30,9 @@ function Register() {
       localStorage.setItem("userName", userName);
       localStorage.setItem("mailId", mailId);
       localStorage.setItem("phNo", phNo);
+      
+      localStorage.setItem("authenticated", true);
+      navigate("/categories");
     }
   };
 
@@ -80,7 +86,7 @@ function Register() {
           />
           {error && mailId.length === 0 ? (
             <label className={styles.error}>Field is required</label>
-          ) : ( 
+          ) : (
             !isValidEmail(mailId) && (
               <label className={styles.error}>Invalid Mail id</label>
             )
@@ -117,6 +123,7 @@ function Register() {
         <button className={styles.button} onClick={handleSubmit}>
           SIGN UP
         </button>
+
         <div className={styles.termsConditions}>
           <p>
             By clicking on Sign up. you agree to Superapp{" "}
