@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import styles from "./categories.module.css";
 import { FiAlertTriangle } from "react-icons/fi";
 import { MdOutlineCancel } from "react-icons/md";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 function Categories() {
   const [selected, setSelected] = useState([]);
   const [error, setError] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [movieCategories, setMovieCategories] = useState([
     {
       genre: "Action",
@@ -71,11 +71,14 @@ function Categories() {
   }, [movieCategories]);
 
   const submitInfo = () => {
-    
-    setError(selected.length < 3);
-    selected.length>=3&& navigate('/')
-
+    const hasEnoughGenres = selected.length >= 3;
+    setError(!hasEnoughGenres);
+    if (hasEnoughGenres) {
+      localStorage.setItem("selectedGenres", JSON.stringify(selected));
+      navigate("/");
+    }
   };
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -133,8 +136,7 @@ const Category = ({
   category: { genre, img, color, isSelected },
   setMovieCategories,
 }) => {
-  // const [isSelected, setisSelected] = useState(false);
-
+  
   return (
     <>
       <div
