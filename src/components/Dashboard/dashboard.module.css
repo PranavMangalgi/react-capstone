@@ -13,29 +13,27 @@
 }
 
 .userInfoWeather {
-  height: 100vh;
-  width: 800px;
+  height: 48vh;
+  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  padding: 2rem;
+  margin: 1rem;
 }
 
 .userInfo {
   background-color: #5746ea;
-  padding: 1rem;
-  width: 600px;
-  height: 400px;
+  padding: .25rem;
+  width: 400px;
+  height: 200px;
   display: flex;
-  gap: 100px;
+  gap: 10px;
   border-radius: 20px;
 }
 
-.image {
-  width: 100px;
-}
+
 .image img {
   height: 100%;
 }
@@ -43,24 +41,24 @@
 .userDetails {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 20px;
   padding: 1rem;
 }
 
 .user * {
   font-family: 400;
-  font-size: 1.5rem;
+  font-size: 1rem;
   width: 100px;
 }
 
 .userName {
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: 500;
 }
 
 .genres {
   display: flex;
-  width: 320px;
+  width: 250px;
   max-height: 90px;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -69,9 +67,10 @@
 
 .genres div {
   background-color: #9f94ff;
-  width: 150px;
+  width: 100px;
   text-align: center;
   padding: 10px 0;
+  font-size: 12px;
   border-radius: 20px;
 }
 
@@ -89,8 +88,8 @@
 }
 
 .weather {
-  width: 600px;
-  height: 200px;
+  width: 400px;
+  height: 100px;
 }
 
 .dateTime {
@@ -100,7 +99,7 @@
   font-size: 2rem;
   font-weight: 600;
   justify-content: center;
-  gap: 150px;
+  gap: 40px;
   background-color: #ff4ade;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
@@ -144,7 +143,7 @@
 }
 
 .tempText {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .wind {
@@ -164,12 +163,12 @@
 }
 
 .newsSection {
-  padding: 2rem;
+  margin: 1rem;
   height: 100vh;
 }
 .newsCard {
   width: 300px;
-  height: 600px;
+  height: 550px;
   position: relative;
 }
 
@@ -201,11 +200,23 @@
   width: 300px;
   background-color: rgba(0, 0, 0, 0.75);
   position: absolute;
-  top: 38.25%;
+  top: 37%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   padding: 15px;
+  
+}
+
+.heading h4{
+  flex-shrink: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+  max-height: 2em; /* Set the maximum height equivalent to two lines */
+  line-height: 1.2em;
+  
+  /* margin-bottom: 1rem; */
 }
 
 .date {
@@ -214,4 +225,56 @@
 }
 .dateHr {
   border-color: #fff;
+}
+
+
+.button{
+  margin-bottom: 2rem ;
+  margin-top: 1rem;
+  position: absolute;
+  right: 0;
+}
+
+.button button{
+  border: none;
+  outline: none;
+  padding: 8px 25px;
+  border-radius: 15px;
+  background-color: #11b800;
+  color: #fff;
+  font-weight: 500;
+}
+
+.notes{
+  width: 300px;
+  height: 390px;
+  background-color: #F1C75B;
+  margin: 1rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.notes h2{
+  align-self: flex-start;
+  padding: 0 1rem;
+  color: rgba(0, 0, 0, .99);
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.notes textarea{
+  max-width: 300px;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  border: none;
+  overflow: auto;
+  color: #000;
+  padding: 1rem;
+  font-size: 16px;
+  line-height: 1.75;
+  font-size: 1rem;
 }
