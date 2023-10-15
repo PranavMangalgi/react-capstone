@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "../dashboard.module.css";
 import axios from "axios";
+import { newsApiKey } from "../../../API_KEY";
 
-function NewsSection({ newsApiKey, formattedDate, time }) {
+function NewsSection({ formattedDate, time, hour }) {
   const [news, setNews] = useState(null);
   let index;
   if (news) {
@@ -20,14 +21,14 @@ function NewsSection({ newsApiKey, formattedDate, time }) {
         setNews(
           response.data.results.filter(
             (news) =>
-              news.language === "english" && news.image_url && news.content 
+              news.language === "english" && news.image_url && news.content
           )
         );
       } catch (error) {
         console.error(error);
       }
     })();
-  }, []);
+  }, [hour]);
   console.log("news:", news);
   return (
     <div className={styles.newsSection}>
@@ -42,7 +43,9 @@ function NewsSection({ newsApiKey, formattedDate, time }) {
             <div>{time}</div>
           </div>
         </div>
-        <div className={styles.content}>{news && news[index].content}</div>
+        <div className={styles.content}>
+          <p>{news && news[index].content}</p>
+        </div>
         <div className={styles.button}>
           <button>Browse</button>
         </div>

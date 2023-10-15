@@ -4,7 +4,6 @@ import Register from "./components/register/Register";
 import Dashboard from "./components/Dashboard/Dashboard";
 import { Routes, Route, Navigate } from "react-router-dom";
 function App() {
-  
   return (
     <>
       <Routes>

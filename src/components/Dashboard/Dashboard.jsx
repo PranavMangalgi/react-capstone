@@ -5,9 +5,12 @@ import key, { newsApiKey } from "../../API_KEY";
 import Notes from "./subcomponents/Notes";
 import ProfileWeather from "./subcomponents/ProfileWeather";
 import NewsSection from "./subcomponents/NewsSection";
+import Timer from './subcomponents/Timer'
 
 function Dashboard() {
   const date = new Date();
+  const day = date.getDate();
+  const hour = date.getHours();
   const formattedDate = date
     .toLocaleDateString("en-US", {
       month: "2-digit",
@@ -29,13 +32,15 @@ function Dashboard() {
   }, []);
   return (
     <div className={styles.container}>
-      <ProfileWeather key={key} formattedDate={formattedDate} time={time} />
-      <Notes />
+      <div className={styles.first}>
+        <ProfileWeather formattedDate={formattedDate} time={time} day={day} /> {/* Prop 'day' ensures a server request only once per day */}
+        <Notes />
+        <Timer/>
+      </div>
       <NewsSection
-        newsApiKey={newsApiKey}
         formattedDate={formattedDate}
-        time={time}
-      />
+        time={time} hour={hour}
+      /> {/* Prop 'hour' ensures a server request only once per hour */}
     </div>
   );
 }

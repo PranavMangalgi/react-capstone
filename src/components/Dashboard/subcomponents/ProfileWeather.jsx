@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import animatedImage from "../../../assets/animated-person.png";
-import { WiDayRainMix, WiHumidity } from "react-icons/wi";
+import { WiDayRainMix, WiHumidity, WiDaySunnyOvercast } from "react-icons/wi";
 import { TbWind } from "react-icons/tb";
 import styles from "../dashboard.module.css";
 import axios from "axios";
+import key from "../../../API_KEY";
 
-function ProfileWeather({ key , formattedDate, time}) {
+function ProfileWeather({ formattedDate, time, day }) {
   const [data, setData] = useState(null);
 
+  
   useEffect(() => {
     (async () => {
       const options = {
@@ -24,13 +26,13 @@ function ProfileWeather({ key , formattedDate, time}) {
 
       try {
         const response = await axios.request(options);
-        console.log(response.data);
+        console.log("weather:", response.data); // why is this not being shown?
         setData(response.data);
       } catch (error) {
         console.error(error);
       }
     })();
-  }, []);
+  }, [day]);
   return (
     <div className={styles.userInfoWeather}>
       <div className={styles.userInfo}>
@@ -63,7 +65,13 @@ function ProfileWeather({ key , formattedDate, time}) {
         <div className={styles.weatherInfo}>
           <div className={styles.status}>
             <div>
-              <WiDayRainMix size="40px" />
+              {data &&
+              (data.current.condition.text.includes("cloudy") ||
+                data.current.condition.text.includes("rain")) ? (
+                <WiDayRainMix size="40px" />
+              ) : (
+                <WiDaySunnyOvercast size="40px" />
+              )}
             </div>
             <div>{data && data.current.condition.text}</div>
           </div>
