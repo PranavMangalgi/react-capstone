@@ -63,10 +63,4 @@ Make sure to set the following environment variables in a `.env` file:
 - `REACT_APP_NEWS_API_KEY`: API key for news data.
 - `REACT_APP_MOVIE_KEY`: API key for movie data.
 
-## Contributing
 
-Contributions are welcome! If you have any suggestions, feel free to open an issue or create a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
