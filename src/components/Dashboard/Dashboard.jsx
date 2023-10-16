@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./dashboard.module.css";
-import key, { newsApiKey } from "../../API_KEY";
 import Notes from "./subcomponents/Notes";
 import ProfileWeather from "./subcomponents/ProfileWeather";
 import NewsSection from "./subcomponents/NewsSection";

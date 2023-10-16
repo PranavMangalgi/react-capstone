@@ -4,12 +4,12 @@ import { WiDayRainMix, WiHumidity, WiDaySunnyOvercast } from "react-icons/wi";
 import { TbWind } from "react-icons/tb";
 import styles from "../dashboard.module.css";
 import axios from "axios";
-import key from "../../../API_KEY";
+// import key from "../../../API_KEY";
+const key = process.env.REACT_APP_WEATHER_KEY;
 
 function ProfileWeather({ formattedDate, time, day }) {
   const [data, setData] = useState(null);
 
-  
   useEffect(() => {
     (async () => {
       const options = {
@@ -26,7 +26,6 @@ function ProfileWeather({ formattedDate, time, day }) {
 
       try {
         const response = await axios.request(options);
-        console.log("weather:", response.data); // why is this not being shown?
         setData(response.data);
       } catch (error) {
         console.error(error);

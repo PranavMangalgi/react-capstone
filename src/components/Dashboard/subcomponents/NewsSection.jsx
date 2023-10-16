@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styles from "../dashboard.module.css";
 import axios from "axios";
-import { newsApiKey } from "../../../API_KEY";
+// import { newsApiKey } from "../../../API_KEY";
+import { useNavigate } from "react-router-dom";
+const newsApiKey= process.env.REACT_APP_NEWS_API_KEY;
 
 function NewsSection({ formattedDate, time, hour }) {
+  const navigate = useNavigate();
   const [news, setNews] = useState(null);
   let index;
   if (news) {
@@ -13,11 +16,8 @@ function NewsSection({ formattedDate, time, hour }) {
     (async () => {
       try {
         const response = await axios.get(
-          `https://newsdata.io/api/1/news?apikey=${encodeURI(
-            newsApiKey
-          )}&q=olympics`
+          `https://newsdata.io/api/1/news?apikey=${newsApiKey}&q=olympics`
         );
-        console.log(response.data);
         setNews(
           response.data.results.filter(
             (news) =>
@@ -29,7 +29,6 @@ function NewsSection({ formattedDate, time, hour }) {
       }
     })();
   }, [hour]);
-  console.log("news:", news);
   return (
     <div className={styles.newsSection}>
       <div className={styles.newsCard}>
@@ -47,7 +46,7 @@ function NewsSection({ formattedDate, time, hour }) {
           <p>{news && news[index].content}</p>
         </div>
         <div className={styles.button}>
-          <button>Browse</button>
+          <button onClick={() => navigate("/entertainment")}>Browse</button>
         </div>
       </div>
     </div>

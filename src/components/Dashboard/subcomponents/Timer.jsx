@@ -9,17 +9,16 @@ function Timer() {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-  
+
   const time = useMemo(() => {
     return hours * 3600 + minutes * 60 + seconds;
   }, [hours, minutes, seconds]);
 
-  console.log("time:", time);
   return (
     <div className={styles.timer}>
       <div>
         <CountdownCircleTimer
-        key={time}
+          key={time}
           className={styles.countdownTimer}
           isPlaying={start}
           isPlayingReverse={true}
@@ -39,7 +38,7 @@ function Timer() {
                   setMinutes(0);
                   setSeconds(0);
                   setStart(false);
-                  clearInterval(intervalId)
+                  clearInterval(intervalId);
                 }
               }, 1000);
             })();
@@ -56,8 +55,7 @@ function Timer() {
             const seconds = String(remainingTime % 60).padStart(2, "0");
 
             return `${hours}:${minutes}:${seconds}`;
-          }
-          }
+          }}
         </CountdownCircleTimer>
       </div>
       <div>
