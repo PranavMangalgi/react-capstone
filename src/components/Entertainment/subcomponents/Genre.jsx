@@ -29,7 +29,7 @@ function Genre({ genre }) {
           console.error(error);
         });
     })();
-  }, []);
+  }, [genre]);
 
   useEffect(() => {
     (async () => {

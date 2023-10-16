@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import styles from "../dashboard.module.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import up from "../../../assets/up-vector.png";

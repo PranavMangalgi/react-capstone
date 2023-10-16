@@ -28,7 +28,7 @@ function Dashboard() {
     if (!localStorage.getItem("authenticated")) {
       navigate("/register");
     }
-  }, []);
+  }, [navigate]);
   return (
     <div className={styles.container}>
       <div className={styles.first}>
