@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import animatedImage from "../../../assets/animated-person.png";
 import { WiDayRainMix, WiHumidity, WiDaySunnyOvercast } from "react-icons/wi";
 import { TbWind } from "react-icons/tb";

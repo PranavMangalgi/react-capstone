@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "../dashboard.module.css";
 import axios from "axios";
-// import { newsApiKey } from "../../../API_KEY";
 import { useNavigate } from "react-router-dom";
 const newsApiKey= process.env.REACT_APP_NEWS_API_KEY;
 
