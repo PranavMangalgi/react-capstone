@@ -12,7 +12,7 @@ function Register() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    const checkboxElement = document.querySelector("#checked");
+    const checkboxElement = document.querySelector("#checkedBox");
     let hasError = false;
     if (
       !name.length ||

@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from "react";
 import styles from "./entertainment.module.css";
 import animatedPerson from "../../assets/round-animated.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Genre from "./subcomponents/Genre";
 function Entertainment() {
   const [genres, setGenres] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
-    const retrievedGenres = JSON.parse(localStorage.getItem("selectedGenres"));
+    if (!localStorage.getItem("authenticated")) {
+      navigate("/register");
+    }else if(!localStorage.getItem("selectedGenres")){
+      navigate('/categories')
+    }else{
+      const retrievedGenres = JSON.parse(localStorage.getItem("selectedGenres"));
     const filteredGenres = retrievedGenres.map((i) => i.genre);
     setGenres(filteredGenres);
-  }, []);
+    }
+    
+  }, [navigate]);
   return (
     <div className={styles.container}>
       <div className={styles.header}>
